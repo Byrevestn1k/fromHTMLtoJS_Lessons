@@ -29,15 +29,39 @@
     for (let i = 2; i <= number / 2; i++) {
         it++;
         if (number % i == 0) {
-         flag = true;
+            flag = true;
             break;
         }
     }
-    if(flag){
+    if (flag) {
         console.log("Is Prime");
     }
-    else{
+    else {
         console.log("Is Simple");
     }
     console.log(it);
+}
+//Виведіть таблицю множення для всіх чисел від 2 до 9. Кожне число необхідно помножити на числа від 1 до 10
+
+document.write("<table>")
+for (let q = 0; q < 10; q+=5) {
+    document.write("<tr>")
+    for (let j = 1; j < 6; j++) {
+        document.write("<td>")
+        for (let i = 1; i <= 10; i++) {
+            document.write(`${j + q} x ${i} = ${(j + q) * i}<br>`);
+        }
+        document.write("</td>")
+    }
+    document.write("</tr>")
+}
+document.write("</table>")
+
+// Виведіть кожен 4-ий елемент із зазначеного користувачем діапазону. Користувач вказує мінімальне та максимальне значення діапазону
+
+let min = +prompt("Enter number");
+let max = +prompt("Enter number");
+
+for(let i = min+3; i <= max; i+=4){
+    document.write(i + " ");
 }
