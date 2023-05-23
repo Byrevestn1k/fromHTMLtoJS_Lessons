@@ -24,7 +24,7 @@ console.log(findSpam(noSpam,spam));
 // символи, додавши замість них трикрапку.
 // Наприклад: truncate("Hello, world!", 8) має повернути
 // "Hello...".
-
+let number = 5;
 let truncate = (line, number) =>{
     if(line.length <= number){
         return line;
@@ -41,4 +41,5 @@ let truncate = (line, number) =>{
     return truncLine;
 }
 
-console.log(truncate(line,30));
+
+console.log(truncate("Hello World",number))
