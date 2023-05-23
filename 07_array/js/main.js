@@ -4,9 +4,14 @@
 //console.log(colors);
 
 // let colors = [];
-// for(let i = 0; i < 10; i++)
+// for(let i = 0; i < 10; )
 // {
-//     colors[i] = i;
+        let mark = +prompt();
+        if(mark > 0 && mark <= 12){
+            //     colors[i] = mark;
+            i++
+        }
+
 // }
 // for(let i = 0; i < 10; i++)
 // {
