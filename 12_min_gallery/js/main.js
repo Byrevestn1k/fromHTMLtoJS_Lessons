@@ -1,15 +1,20 @@
 
 let listImg = document.querySelectorAll('.img img');
-let target = -1;
+let target = null;
 for (let i = 0; i < listImg.length; i++) {
     listImg[i].addEventListener('click', () => {
-        for(let j = 0; j < listImg.length; j++)
-        {
-            if(listImg[j].classList.contains('active') && j != i){
-                listImg[j].classList.remove('active')
-            }
-        }
-        listImg[i].classList.toggle('active');
+
+        // if(target != null) target.classList.toggle('active')
+        // listImg[i].classList.add('active');
+        // target = listImg[i];
+
+        // for(let j = 0; j < listImg.length; j++)
+        // {
+        //     if(listImg[j].classList.contains('active') && j != i){
+        //         listImg[j].classList.remove('active')
+        //     }
+        // }
+        // listImg[i].classList.toggle('active');
 
         // if (target == -1) {
         //     listImg[i].classList.toggle('active');
