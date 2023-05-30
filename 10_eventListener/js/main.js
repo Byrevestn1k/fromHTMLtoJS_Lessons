@@ -62,3 +62,5 @@ closeB.addEventListener('click', () => {
     block.style.transition = "1s"
     block.style.transform = "scale(0) rotate(-360deg)"
 })
+
+
