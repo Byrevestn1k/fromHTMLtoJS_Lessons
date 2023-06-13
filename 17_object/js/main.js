@@ -107,3 +107,37 @@
 // let user_2 = createUser("Petro","Savko",22)
 // console.log(user_2)
 
+
+// Створіть об’єкт, що описує прямокутник (зберігає координати лівої верхньої та правої нижньої точок), і напишіть наступні
+// функції для роботи з таким об’єктом
+
+let rect = {
+    leftX: 0,
+    leftY:0,
+    rightX:200,
+    rightY:200
+}
+// Функція приймає об’єкт-прямокутник і виводить інформацію про нього (де яка точка розташована).
+let box = document.querySelector(".root")
+let printRect = (rect) =>{
+    let h3 = document.createElement('h3');
+    h3.textContent = "Task 1";
+    box.insertAdjacentElement('beforeend',h3);
+    let p = document.createElement('p')
+    p.innerHTML = `<span>TopLeft :: x - ${rect.leftX}; y - ${rect.leftY}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span>BottomRight :: x - ${rect.rightX}; y - ${rect.rightY}</span>`
+    box.insertAdjacentElement('beforeend',p)
+}
+printRect(rect);
+// 2. Функція приймає об’єкт-прямокутник і повертає його ширину.
+let getWidth = (rect) =>{
+    return rect.rightX - rect.leftX;
+}
+
+// 6. Функція зміни ширини прямокутника. Вона приймає
+// об’єкт-прямокутник і на скільки одиниць змінити ширину.
+
+let resizeWidth = (rect,resize) =>{
+    rect.rightX += resize
+}
+resizeWidth(rect,100)
+console.log(rect)
