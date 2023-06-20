@@ -1,0 +1,66 @@
+.form1 {
+    width: 400px;
+    background-color: rgb(30, 161, 93);
+    padding: 15px;
+    box-sizing: border-box;
+    padding-left: 50px;
+    font-size: 1.5em;
+}
+
+.form1 input {
+    margin-left: 10px;
+    height: 20px;
+    margin-bottom: 15px;
+}
+
+.form1 label {
+    line-height: 20px;
+}
+
+.form1 input[type="checkbox"] {
+    margin: 0;
+    margin-left: 15px;
+}
+
+.form1 p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.form1 button {
+    display: block;
+    width: 200px;
+    font-size: 1.1em;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+form {
+    margin-top: 50px;
+}
+
+.male {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form1 .male input {
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+input[type="color"] {
+    height: 50px;
+    width: 50px;
+}
+
+.form1 input[type="range"] {
+    margin: 0;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
