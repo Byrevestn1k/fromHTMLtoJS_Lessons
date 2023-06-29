@@ -13,3 +13,7 @@ button{
 input:focus-visible{
     outline: none;
 }
+
+.error{
+    border: solid red;
+}

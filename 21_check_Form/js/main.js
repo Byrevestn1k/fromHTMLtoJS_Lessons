@@ -98,9 +98,9 @@
 // template = /^\+[0-9]{12}$/
 // console.log(phone,template.test(phone))
 
-let str = 'HTTPS'
-template = /https?/i
-console.log(str, ' --> ', template.test(str))
+// let str = 'HTTPS'
+// template = /https?/i
+// console.log(str, ' --> ', template.test(str))
 
 // template = /[0-9]{3}/g
 // let str_1 = '123abc456qwer114'
@@ -145,3 +145,42 @@ console.log(str, ' --> ', template.test(str))
 //         form.name.style.borderColor = 'black'
 //     }
 // })
+
+let form = document.forms[0]
+
+// form.name.addEventListener('input',()=>{
+//     if(form.name.value[0] == ' '){
+//         form.name.classList.add('error')
+
+//     }
+// })
+//console.log(form.elements[5].tagName == 'BUTTON')
+//let el = document.querySelectorAll('input')
+form.addEventListener('submit',(e)=>{
+    if(!checkAllElement(form.elements)){
+        return
+    }
+    
+    e.preventDefault()
+});
+
+function checkEmpty(str){
+    return /\w/.test(str)
+}
+function checkAllElement(arr)
+{
+    flag = true
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i].tagName == 'BUTTON'){
+            continue;
+        }
+        if(!checkEmpty(arr[i].value)){
+            arr[i].classList.add('error')
+            flag = false
+        }
+        else{
+
+        }
+    }
+    return flag   
+}
