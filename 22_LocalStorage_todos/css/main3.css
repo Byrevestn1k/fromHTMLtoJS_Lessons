@@ -1,0 +1,20 @@
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+ul{
+    list-style-type: none;
+    padding: 50px;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px #000;
+    width: 150px;
+    float: left;
+}
+
+.info, .article{
+    margin-left: 265px;
+}
+.article{
+    text-align: center;
+    display: none;
+}

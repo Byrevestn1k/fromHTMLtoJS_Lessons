@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <style>
+        ul{
+            list-style-type: none;
+            display: flex;
+            padding: 0;
+        }
+        li{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        ul li:nth-child(1){
+            background-color: red;
+        }
+        ul li:nth-child(2){
+            background-color: blue;
+        }
+        ul li:nth-child(3){
+            background-color: green;
+        }
+        ul li:nth-child(4){
+            background-color: orange;
+        }
+        .active{
+            border: solid 2px rgb(97, 95, 95);
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <p>Book</p>
+        <ul>
+            <li data-color="red"></li>
+            <li data-color="blue"></li>
+            <li data-color="green"></li>
+            <li data-color="orange"></li>
+        </ul>
+        <label for="">Number</label>
+        <input type="number" min = '0'>
+        <br>
+        <button>Order</button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

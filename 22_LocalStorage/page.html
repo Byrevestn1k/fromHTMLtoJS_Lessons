@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <style>
+        .item-color{
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        <p>Number :: <span id = 'number'></span></p>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded',()=>{
+            let obj = JSON.parse(localStorage.getItem('order'))
+            let span = document.createElement('span')
+            span.classList.add('item-color')
+            span.style.backgroundColor = obj.color
+            document.querySelector('div').insertAdjacentElement('afterbegin',span)
+            window.number.textContent = obj.number
+        })
+        window.addEventListener('storage',()=>{
+            let obj = JSON.parse(localStorage.getItem('order'))
+            document.querySelector('div>span').style.backgroundColor = obj.color
+            window.number.textContent = obj.number
+        })
+    </script>
+</body>
+</html>
