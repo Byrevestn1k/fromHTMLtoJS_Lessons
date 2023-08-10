@@ -46,7 +46,8 @@
 // // }
 let date = new Date()
 date.setHours(new Date().getHours() + 5)
-
+if (document.cookie.indexOf('id') == -1)
+    document.cookie = `id=${1}; expires=${date.toUTCString()}`
 
 let form = document.forms[0]
 let email = form.email;
@@ -59,11 +60,12 @@ link.addEventListener('click', (e) => {
         e.preventDefault();
     }
 
-    if (checkUser(email.value, password.value)) {
-        checkUser(email.value, password.value)
+    if(!checkUser(email.value, password.value))
+    {
+        setCookie(email,password);
+        e.preventDefault();
     }
-    setCookie(email.value, password.value);
-
+    
 })
 email.addEventListener('input', () => {
     deleteWrong(wrong[0])
@@ -72,7 +74,14 @@ password.addEventListener('input', () => {
     deleteWrong(wrong[1])
 })
 
-
+function getId() {
+    let index = document.cookie.indexOf('id')
+    let id = +(document.cookie[index + 3])
+    // console.log(id)
+    // console.log(id)
+    document.cookie = `id=${id+1}; expires=${date.toUTCString()}`
+    return id
+}
 function deleteWrong(wrong) {
     wrong.classList.remove('wrong')
 }
@@ -86,45 +95,46 @@ function checkEmail(email) {
     }
     return true;
 }
-function setCookie(email, password) {
-
-    let obj = {
-        email: email,
-        password: password
-    }
-    arr = []
-    if (getCookie() != null) {
-        arr = getCookie();
-    }
-    if (checkUser(email, password)) {
-        return
-    }
-    arr.push(obj)
-    document.cookie = `current=${arr.length - 1}; expires=${date.toUTCString()}`
-    document.cookie = `users=${JSON.stringify(arr)}; expires=${date.toUTCString()}`
+function setCookie(email,password){
+    date = new Date()
+    date.setHours(new Date().getHours() + 5)
+    let id = getId()
+    document.cookie = `user${id}=${email.value}; expires=${date.toUTCString()}`
+    document.cookie = `password${id}=${password.value}; expires=${date.toUTCString()}`
 }
 
-function getCookie() {
+function getCookie(){
+    
     let res = document.cookie.split('; ')
-    for (let i = 0; i < res.length; i++) {
-        let s = res[i].split('=')
-        if (s[0] == 'users') {
-            return JSON.parse(s[1])
+    let arr = []
+    for(let i = 0; i < res.length; i++){
+        let obj = {}
+        user = res[i].split('=')
+        if(user[0].indexOf('user') != -1){
+            obj.user = user[1]
+            number = user[user.lenght - 1]
+            for(let j = 0; j < res.length; j++){
+                tmp =  res[j].split('=')
+                if(tmp[0].indexOf('password')!=-1){
+                    if(tmp[0][tmp[0].lenght-1] == number){
+                        obj.password = tmp[1]
+                    }
+                }
+            }
         }
+        else{
+            continue;
+        }        
+        arr.push(obj)
     }
-    return null
+    return arr;
 }
-function checkUser(email, password) {
+function checkUser(email,password){
     let users = getCookie();
-    if (!users) return false;
     for (let i = 0; i < users.length; i++) {
-        console.log(users[i])
-        if (users[i].email == email && users[i].password == password) {
-            document.cookie = `current=${i}; expires=${date.toUTCString()}`
-
+        if(users[i].user == email && users[i].password == password){
             return true;
         }
     }
     return false;
 }
-// console.log(getCookie())
