@@ -1,0 +1,33 @@
+body{
+    background-color: #000;
+}
+.container{
+    width:800px;
+    margin: 0 auto;
+}
+.bigImg{
+    width: 800px;
+    height: 600px;
+    border: solid #fff 5px;
+    position: relative;
+}
+.minImg{
+    text-align: center;
+}
+.minImg img{
+    width: 150px;
+    margin: 5px 10px;
+}
+.left,.right{
+    height: 70px;
+    position: absolute;
+    top:50%;
+    margin-top: -35px;
+    opacity: 0.5;
+}
+.left{
+    left:5px;
+}
+.right{
+    right: 5px;
+}
