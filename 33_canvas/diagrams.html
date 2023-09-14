@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrams</title>
+    <style>
+        table{
+            float: left;
+            margin-right: 20px;
+
+        }
+        #figure{
+            border: solid;
+        }
+        table tr td:nth-child(even),table tr th:nth-child(even) {
+            width: 50px;
+        }
+        input{
+            width: 45px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Day</th> <th>Sold</th>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td><input type="number" value="10"></td>
+        </tr>
+        <tr>
+            <td>Tuesday</td>
+            <td><input type="number" value="15"></td>
+        </tr>
+        <tr>
+            <td>Wednesday</td>
+            <td><input type="number" value="12"></td>
+        </tr>
+        <tr>
+            <td>Thursday</td>
+            <td><input type="number" value="20"></td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td><input type="number" value="13"></td>
+        </tr>
+    </table>
+    <canvas id="figure" width="200" height="150"></canvas>
+
+
+    <script>
+        let canvas = document.getElementById('figure')
+        let ctx = canvas.getContext('2d')
+        let days = document.querySelectorAll('input')
+
+        function showDiagram(){
+            ctx.clearRect(0,0,canvas.width, canvas.height)
+            let colors = [
+                ['#ff5db1','#ef017c'],
+                ['#ffb05c','#ef7c01'],
+                ['#beff5c','#90ef01'],
+                ['#5cf4ff','#01dfef'],
+                ['#d35cff','#af01ef'],
+            ]
+            for (let i = 0; i < days.length; i++) {
+                let sold = days[i].value
+                let gradient = ctx.createLinearGradient(0,0,0,150)
+                gradient.addColorStop(0,colors[i][0])                
+                gradient.addColorStop(1,colors[i][1]) 
+                ctx.fillStyle = gradient;
+                ctx.fillRect(40 * i,150 - sold * 5,35,sold * 5)               
+            }
+        }
+        for (let i = 0; i < days.length; i++) {
+            days[i].addEventListener('input',()=>{
+                showDiagram()
+            })  
+        }
+        showDiagram();
+    </script>
+</body>
+</html>

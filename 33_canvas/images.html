@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image</title>
+    <style>
+        #figure{
+            border:solid 1px lightblue;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="figure" height="150" width="300"></canvas>
+    <br>
+    <button>Image 1</button>
+    <button>Image 2</button>
+    <script>
+        let src = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'
+        let canvas = document.getElementById('figure')
+        let ctx = canvas.getContext('2d');
+
+        let btn = document.querySelectorAll('button')
+        btn[0].addEventListener('click',showImage1)
+        btn[1].addEventListener('click',showImage2)
+
+        function showImage1(){
+            const img = document.createElement('img')
+            img.src = src;
+            ctx.drawImage(img,0,0,150,150)
+        }
+        function showImage2()
+        {
+            const img = new Image()
+            img.src = src;
+            img.addEventListener('load', e =>{
+                console.log(e)
+                ctx.drawImage(img,0,0,150,150)
+            })
+        }
+
+    </script>
+</body>
+</html>

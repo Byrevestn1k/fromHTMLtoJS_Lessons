@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient</title>
+</head>
+<body>
+    <canvas id="figure" width="400" height="300"></canvas>
+
+    <script>
+        let canvas = document.getElementById('figure')
+        let ctx = canvas.getContext('2d')
+
+        let linear = ctx.createLinearGradient(0,100,200,100)
+
+        linear.addColorStop(0,'#d2ff52')
+        linear.addColorStop(0.5,'#d24b5a')
+        linear.addColorStop(1,'#91e842')
+
+        ctx.fillStyle = linear
+        ctx.fillRect(0,80,190,40)
+
+        let radial = ctx.createRadialGradient(300,100,10,300,100,100)
+        radial.addColorStop(0,'#d2ff52')
+        radial.addColorStop(0.5,'#d24b5a')
+        radial.addColorStop(1,'#91e842')
+
+        ctx.fillStyle = radial
+        ctx.arc(300,100,100,0,2*Math.PI)
+        ctx.fill()
+
+    </script>
+</body>
+</html>

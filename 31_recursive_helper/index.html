@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function maxDigit(number) {
+        if (number < 10) {
+            return number;
+        }
+        let maxInRest = maxDigit(Math.floor(number / 10));
+        let currentDigit = number % 10;
+        // return Math.max(currentDigit, maxInRest);
+        return maxInRest > currentDigit ? maxInRest : currentDigit;
+    }
+    console.log(maxDigit(56798))
+    </script>
+</body>
+</html>
