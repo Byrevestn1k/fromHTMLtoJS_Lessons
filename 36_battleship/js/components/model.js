@@ -31,6 +31,11 @@ export class Model {
                 direction: true,
             },
             {
+                location: [0, 0],
+                hits: ['', ''],
+                direction: true,
+            },
+            {
                 location: [0],
                 hits: [''],
                 direction: true,

@@ -6,15 +6,19 @@ export class Controller{
         this.view = new View(gridElement)
         this.board = this.view.getBoard();
         this.data = new Model().getShips();
+        this.fire = 0;
     }
 
     startGame(){
         for (let i = 0; i < this.board.length; i++) {
             for (let j = 0; j < this.board.length; j++) {
                 this.board[i][j].addEventListener('click',()=>{
-                    console.log(this.checkShipFire(i,j))
                     if(this.checkShipFire(i,j)){
                         this.view.showShips(this.board[i][j])
+                        this.fire++;
+                        if(this.fire == 20){
+                            this.endGame();
+                        }
                     }
                     else{
                         this.view.showHits(this.board[i][j])
@@ -22,6 +26,9 @@ export class Controller{
                 })
             }
         }
+    }
+    endGame(){
+        this.view.winGame();
     }
 
     checkShipFire(x,y){
